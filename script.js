@@ -3,9 +3,9 @@ function myFunction() {
   var burgerMenu = document.querySelector(".burger-menu");
   
   if (navigation.className === "nav-list") {
-    navigation.className += " expand";
+    navigation.className += " nav-list--expand";
   } else {
     navigation.className = "nav-list";
   }
-  burgerMenu.classList.toggle('open');
+  burgerMenu.classList.toggle('burger-menu--open');
 }

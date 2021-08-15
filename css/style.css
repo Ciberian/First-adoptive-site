@@ -14,7 +14,7 @@ body {
 
 /* Стили шапки сайта */
 .main-header {
-  padding: 50px 10px;
+  padding: 10px;
   background-image: url(../img/Main-bg.png);
   background-position: top center;
   background-repeat: no-repeat;
@@ -28,6 +28,11 @@ body {
   align-items: center;
 }
 
+.logo {
+  width: 90px;
+  height: 37px;
+}
+
 .nav-list {
   display: none;
   margin: 0;
@@ -35,9 +40,39 @@ body {
   list-style: none;
 }
 
+.nav-list--expand {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  background-color: #ece7ec;
+}
+
+.nav-list__item {
+  padding: 11px;
+}
+
+.nav-list__item:hover {
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.nav-list__item.nav-list__item--active {
+  background-color: #8b7eac;
+  border-radius: 4px;
+}
+
+.nav-list__item--active .nav-list__link {
+  color: #ece7ec;
+}
+
 .nav-list__link,
 .phone-number {
+  padding: 0;
   color: #8b7eac;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
@@ -46,12 +81,14 @@ body {
 
 .phone-number {
   font-weight: 500;
+  white-space: nowrap;
 }
 
 /* Иконка меню в обычном состоянии */
 .burger-menu {
+  width: 50px;
+  padding: 17px 0;
   display: flex;
-  width: 60px;
   align-items: center;
   justify-content: center;
 }
@@ -61,9 +98,10 @@ body {
   display: block;
   width: 30px;
   height: 3px;
-  background-color: #f2f2f2;
+  background-color: #8b7eac;
   transition-delay: 0.25s;
   transition-duration: 0.25s;
+  border-radius: 2px;
 }
 
 .burger-icon::before,
@@ -73,9 +111,10 @@ body {
   width: 30px;
   height: 3px;
   content: "";
-  background-color: #f2f2f2;
+  background-color: #8b7eac;
   transition-duration: 0.25s;
 	transition: transform 0.25s, top .25s .25s;
+  border-radius: 2px;
 }
 
 .burger-icon::before {
@@ -87,56 +126,53 @@ body {
 }
 
 /* Иконка меню после нажатия - открытое меню */
-.burger-menu.open .burger-icon {
+.burger-menu--open .burger-icon {
   transition-duration: 0.1s;
 	transition-delay: .25s;
   background: transparent;
   transform: rotate(-180deg);
 }
 
-.burger-menu.open .burger-icon::before {
+.burger-menu--open .burger-icon::before {
   transition: top .25s, transform .25s 0.25s;
   top: 0;
   transform: rotate(-45deg);
 }
 
-.burger-menu.open .burger-icon::after {
+.burger-menu--open .burger-icon::after {
   transition: top 0.4s, transform .25s 0.25s;
   top: 0;
   transform: rotate(45deg);
 }
 
-
 /* Устройства Small (телефоны с горизонтальной ориентацией, 576 пикселей и выше) */
-@media screen and (min-width: 576px) {
-  .nav-list,
-  .nav-list.expand {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    gap: 10px;
-
-  }
-  .burger-menu {
-    display: none;
-  }
-  .container, 
-  .container-big {
-    max-width: 540px;
-  }
-}
-
 
 
 /*  Устройства Medium (планшеты, 768 пикселей и выше) */
 @media screen and (min-width: 768px) {
-  .nav-list,
-  .nav-list.expand {
-    gap: 20px;
-  }
   .container, 
   .container-big {
     max-width: 720px;
+  }
+  .burger-menu {
+    display: none;
+  }
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    order: -1;
+  }
+  .logo {
+    order: -2;
+    width: 100px;
+  }
+  .nav-list__item {
+  margin-left: 11px;
+  }
+  .nav-list__link,
+  .phone-number {
+    font-size: 10px;
   }
 }
 
@@ -144,7 +180,6 @@ body {
 @media screen and (min-width: 992px) { 
   .nav-list,
   .nav-list.expand {
-    gap: 30px;
   }
   .container, 
   .container-big {
