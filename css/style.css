@@ -21,7 +21,7 @@ body {
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-color: #000000;
+	background-color: #ffffff;
 }
 
 .container,
@@ -37,7 +37,8 @@ body {
 	height: 1px;
 	margin: -1px;
 	padding: 0;
-	border: 0 none;
+	border: 0;
+	clip: rect(0, 0, 0, 0);
 	clip-path: inset(100%);
 }
 
@@ -91,7 +92,7 @@ body {
 }
 
 .nav-list__link--active,
-.nav-list__link--active:hover, 
+.nav-list__link--active:hover,
 .nav-list__link--active:focus {
 	background-color: #8b7eac;
 	border-radius: 4px;
@@ -101,7 +102,6 @@ body {
 .nav-list__link--active:focus {
 	outline: #a095b7 solid 2px;
 }
-
 
 /* 
 Иконка меню в обычном состоянии 
@@ -172,43 +172,51 @@ body {
 Стили промоблока 
 */
 .promo {
-	min-height: 710px;
-	background-color: #444444;
+	padding: 70px 0;
 }
 
 .promo__text {
-	margin: 0;
+	margin: 0 auto;
 	font-family: "Caveat", "Arial", sans-serif;
 	font-weight: normal;
-	font-size: 45px;
-	line-height: 60px;
+	font-size: 22px;
+	line-height: 40px;
+	text-align: center;
 }
 
 .promo__title {
-	margin: 0;
-	font-size: 265px;
-	line-height: 265px;
+	margin: 25px 0;
+	font-size: 70px;
+	font-weight: 500;
+	line-height: 100%;
 	letter-spacing: 0.2em;
 	color: #ffffff;
 	text-transform: uppercase;
-	text-shadow: 0px 0px 50px rgba(123, 121, 161, 0.75);
+	text-align: center;
+	text-shadow: 0px 0px 10px rgba(123, 121, 161, 1);
 }
 
 .promo__link {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	width: 225px;
+	margin: 0 auto 70px;
 	font-weight: 600;
-	font-size: 14px;
-	line-height: 20px;
+	font-size: 12px;
+	line-height: 150%;
 	color: #e65c7b;
 	text-decoration: none;
 }
 
+.promo__link:hover {
+	color: #e0385d;
+	text-decoration: underline #e0385d;
+}
+
 .promo__link::before {
 	content: "";
-	width: 56px;
-	height: 48px;
+	width: 36px;
+	height: 36px;
 	margin-right: 10px;
 	background-color: #e65c7b;
 	background-image: url(../img/Vector.svg);
@@ -216,9 +224,15 @@ body {
 	background-position: center;
 }
 
+.promo__link:hover::before {
+	background-color: #e0385d;
+}
+
 .social {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
+	padding: 0 25px;
 }
 
 .social__list {
@@ -230,9 +244,9 @@ body {
 	list-style: none;
 }
 
-
-
-
+.promo-city {
+	margin: 0;
+}
 
 /*  
 Устройства Medium (планшеты, 768 пикселей и выше) 
@@ -242,6 +256,7 @@ body {
 	.container-big {
 		max-width: 720px;
 	}
+	/* Навигация */
 	.main-nav {
 		padding: 20px 0;
 	}
@@ -264,6 +279,31 @@ body {
 		order: -2;
 		width: 90px;
 	}
+
+	/* Промоблок */
+	.promo {
+		padding: 40px 0;
+	}
+	.promo__text {
+		margin-left: 90px;
+		font-size: 32px;
+		text-align: left;
+	}
+
+	.promo__title {
+		font-size: 145px;
+		text-shadow: 0px 0px 30px rgba(123, 121, 161, 0.75);
+	}
+
+	.promo__link {
+		width: 300px;
+		font-size: 14px;
+	}
+
+	.promo__link::before {
+		width: 56px;
+		height: 48px;
+	}
 }
 
 /*  
@@ -285,6 +325,27 @@ body {
 	}
 	.main-nav {
 		padding: 40px 0;
+	}
+
+	/* Промоблок */
+	.promo__text {
+		margin-left: 100px;
+		font-size: 45px;
+	}
+
+	.promo__title {
+		font-size: 205px;
+		text-shadow: 0px 0px 30px rgba(123, 121, 161, 0.75);
+	}
+
+	.promo__link {
+		width: 300px;
+		font-size: 14px;
+	}
+
+	.promo__link::before {
+		width: 56px;
+		height: 48px;
 	}
 }
 
@@ -310,5 +371,27 @@ body {
 	}
 	.main-nav {
 		padding: 51px 0;
+	}
+	.phone-number {
+		padding-right: 0;
+	}
+
+	/* Промоблок */
+	.promo__title {
+		font-size: 265px;
+		text-shadow: 0px 0px 30px rgba(123, 121, 161, 0.75);
+	}
+
+	.promo__link {
+		width: 300px;
+		font-size: 14px;
+	}
+
+	.promo__link::before {
+		width: 56px;
+		height: 48px;
+	}
+	.social {
+		padding: 0;
 	}
 }
