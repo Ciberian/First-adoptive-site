@@ -17,13 +17,20 @@ body {
 	margin: 0;
 	font-family: "Montserrat", "Arial", sans-serif;
 	font-size: 12px;
+	line-height: 20px;
 	font-weight: 500;
 	color: #8e80a9;
-	background-image: url(../img/Main-bg.png);
+	background-color: #ffffff;
+	/* background-image: url(../img/Main-bg.png);
 	background-position: top center;
 	background-repeat: no-repeat;
-	background-size: 100%;
-	background-color: #ffffff;
+	background-size: 100%; */
+	background: url("../img/Main-bg.png") top center no-repeat, url("../img/Flowers.svg") 100% 67% no-repeat;
+	background-size: 100%, 100%;
+}
+
+img {
+	vertical-align: top; /* Чтобы избавиться от отступа у картинок, также допустимо в качестве значения - botton. По умолчанию baseline из-за этого и появляется отступ*/
 }
 
 .container,
@@ -229,13 +236,14 @@ body {
 	height: 36px;
 	margin-right: 10px;
 	background-color: #e65c7b;
-	background-image: url(../img/Vector.svg);
+	background-image: url("data:image/svg+xml,%3Csvg width='9' height='17' viewBox='0 0 12 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L10 9.5L1 18' stroke='white'/%3E%3C/svg%3E");
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .promo__link:hover::before {
 	background-color: #e0385d;
+	background-image: url("data:image/svg+xml,%3Csvg width='9' height='17' viewBox='0 0 12 19' stroke-width='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L10 9.5L1 18' stroke='white'/%3E%3C/svg%3E");
 }
 
 .social {
@@ -270,14 +278,16 @@ body {
 */
 
 .groups {
-	background-image: url("../img/Flowers.svg");
+	padding: 65px 0 15px;
+	/* background-image: url("../img/Flowers.svg");
 	background-repeat: no-repeat;
-	background-position: top center;
+	background-position: top right; */
 }
 
 .groups__section-title {
+	margin: 0;
+	margin-bottom: 60px;
 	font-family: "Abhaya Libre", "Arial", sans-serif;
-	font-weight: bold;
 	font-size: 30px;
 	line-height: 15px;
 	text-align: center;
@@ -294,37 +304,64 @@ body {
 }
 
 .groups__item {
+	position: relative;
 	background-color: #fff;
 	box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.8);
 }
 
+.groups__description {
+	padding: 20px;
+}
 
+.groups__title {
+	margin: 0;
+	margin-bottom: 10px;
+	font-family: "Abhaya Libre", "Arial", sans-serif;
+	font-size: 16px;
+	line-height: 15px;
+}
 
+.groups__timetable {
+	margin: 0;
+	margin-bottom: 15px;
+}
 
+.groups__trainer {
+	margin: 0;
+	line-height: 15px;
+	color: #e65c7b;
+}
 
+.groups__trainer-name {
+	margin: 0;
+}
 
+.groups__link {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	width: 45px;
+	height: 30px;
+	background-color: #8e80a9;
+	background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 12 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L10 9.5L1 18' stroke='white'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+}
 
+.groups__link:hover {
+	background-color: #e65c7b;
+	background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 12 19' stroke-width='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L10 9.5L1 18' stroke='%238e80a9'/%3E%3C/svg%3E%0A");
+}
 
+/*
+  ========================================
+  Абонементы - клубные карты
+  ========================================
+*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.club-cards {
+	min-height: 570px;
+}
 
 /*
   ========================================
@@ -433,6 +470,14 @@ body {
 		width: 56px;
 		height: 48px;
 	}
+
+	/* Направления йоги */
+	.groups__list {
+		flex-wrap: wrap;
+		gap: 30px;
+		height: 660px;
+		margin: 0 212px;
+	}
 }
 
 /*
@@ -487,5 +532,17 @@ body {
 	}
 	.social {
 		padding: 0;
+	}
+
+	/* Направления йоги */
+	.groups__list {
+		justify-content: center;
+		height: 630px;
+		margin: 0;
+		margin-right: 95px;
+	}
+	.groups__img {
+		width: 350px;
+		height: 250px;
 	}
 }
