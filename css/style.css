@@ -7,6 +7,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 *:focus {
@@ -21,16 +22,29 @@ body {
 	font-weight: 500;
 	color: #8e80a9;
 	background-color: #ffffff;
-	/* background-image: url(../img/Main-bg.png);
+	background-image: url("../img/Main-bg-v4.png");
 	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: 100%; */
-	background: url("../img/Main-bg.png") top center no-repeat, url("../img/Flowers.svg") 100% 67% no-repeat;
-	background-size: 100%, 100%;
+	background-repeat: repeat-x;
+	background-size: 100%;
 }
 
 img {
 	vertical-align: top; /* Чтобы избавиться от отступа у картинок, также допустимо в качестве значения - botton. По умолчанию baseline из-за этого и появляется отступ*/
+}
+
+.section-title {
+	margin: 0;
+	font-family: "Abhaya Libre", "Arial", sans-serif;
+	font-size: 30px;
+	line-height: 15px;
+	text-align: center;
+}
+
+.common-background-one {
+	background-image: url("../img/Flowers.svg");
+	background-position: 70% 0%;
+	background-repeat: no-repeat;
+	background-size: 63%;
 }
 
 .container,
@@ -259,6 +273,7 @@ img {
 	width: 50px;
 	margin: 0;
 	padding: 0;
+	line-height: 15px;
 	list-style: none;
 }
 
@@ -269,6 +284,7 @@ img {
 
 .promo-city {
 	margin: 0;
+	line-height: 15px;
 }
 
 /*
@@ -279,18 +295,6 @@ img {
 
 .groups {
 	padding: 65px 0 15px;
-	/* background-image: url("../img/Flowers.svg");
-	background-repeat: no-repeat;
-	background-position: top right; */
-}
-
-.groups__section-title {
-	margin: 0;
-	margin-bottom: 60px;
-	font-family: "Abhaya Libre", "Arial", sans-serif;
-	font-size: 30px;
-	line-height: 15px;
-	text-align: center;
 }
 
 .groups__list {
@@ -298,15 +302,15 @@ img {
 	flex-direction: column;
 	align-items: center;
 	gap: 30px;
-	margin: 0;
+	margin: 60px 0 0;
 	padding: 0;
 	list-style: none;
 }
 
 .groups__item {
 	position: relative;
-	background-color: #fff;
-	box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.8);
+	background-color: #ffffff;
+	box-shadow: 0px 0px 25px rgba(142, 128, 169, 0.5);
 }
 
 .groups__description {
@@ -360,15 +364,95 @@ img {
 */
 
 .club-cards {
-	min-height: 570px;
+	padding: 37px 0 67px;
+	background-image: url("../img/Clouds-v6.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: 100%;
+}
+
+.club-cards__period-list {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 60px 0 40px;
+	padding: 0;
+	list-style: none;
+}
+
+.club-cards__period-link {
+	color: #e65c7b;
+	text-decoration: none;
+}
+
+.club-cards__period-link .active,
+.club-cards__period-link:hover {
+	text-decoration: underline;
+}
+
+.club-cards__card-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.club-cards__card {
+	width: 250px;
+	padding: 25px 21px;
+	background: #ffffff;
+	box-shadow: 0px 0px 25px rgba(142, 128, 169, 0.5);
+	text-align: center;
+}
+
+.club-cards__title {
+	margin: 33px 0 19px;
+	padding: 0;
+	font-family: "Abhaya Libre", "Arial", sans-serif;
+	font-size: 18px;
+}
+
+.club-cards__timetable {
+	margin: 0;
+	margin-bottom: 26px;
+	color: #e65c7b;
+}
+
+.club-cards__price {
+	margin: 0;
+	margin-bottom: 27px;
+	font-family: "Abhaya Libre", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.club-cards__order-link {
+	display: inline-block;
+	margin: 0;
+	padding: 16px 39px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #8e80a9;
+}
+
+.club-cards__order-link:hover {
+	background-color: #776798;
 }
 
 /*
   ========================================
-  Мобильные версии
+  Команда
   ========================================
 */
+.team {
+	min-height: 500px;
+}
+
 /*
+  Мобильные версии=================================
   =================================================
   Устройства Medium (планшеты, 768 пикселей и выше) 
   =================================================
@@ -476,7 +560,42 @@ img {
 		flex-wrap: wrap;
 		gap: 30px;
 		height: 660px;
-		margin: 0 212px;
+		margin: 60px 212px 0;
+	}
+	/* Абонементы */
+	.club-cards__card-list {
+		flex-direction: row;
+		justify-content: center;
+		align-items: start;
+		gap: 50px;
+	}
+	.club-cards__period-list {
+		max-width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		justify-content: space-between;
+	}
+	.club-cards__card {
+		width: 265px;
+		box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.2);
+	}
+	.club-cards__order-link {
+		padding: 16px 47px;
+	}
+	.club-cards__card--large {
+		width: 300px;
+		padding-bottom: 33px;
+	}
+	.club-cards__card--large .club-cards__title {
+		margin: 38px 0 14px;
+		font-size: 30px;
+	}
+	.club-cards__card--large .club-cards__timetable {
+		margin-bottom: 38px;
+	}
+	.club-cards__card--large .club-cards__price {
+		font-size: 45px;
+		margin-bottom: 51px;
 	}
 }
 
@@ -485,6 +604,7 @@ img {
   Устройства X-Large (большие настольные компьютеры, 1200 пикселей и выше) 
   ========================================================================
 */
+
 @media screen and (min-width: 1200px) {
 	.container {
 		max-width: 1010px;
@@ -538,8 +658,11 @@ img {
 	.groups__list {
 		justify-content: center;
 		height: 630px;
-		margin: 0;
+		margin: 60px 0 0;
 		margin-right: 95px;
+	}
+	.groups__item {
+		box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.2);
 	}
 	.groups__img {
 		width: 350px;
