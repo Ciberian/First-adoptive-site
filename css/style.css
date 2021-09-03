@@ -7,7 +7,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-	scroll-behavior: smooth;
+	scroll-behavior: smooth;/*Данное свойство не работает если его добавить тегу body*/
 }
 
 *:focus {
@@ -22,7 +22,7 @@ body {
 	font-weight: 500;
 	color: #8e80a9;
 	background-color: #ffffff;
-	background-image: url("../img/Main-bg-v4.png");
+	background-image: url("../img/mobile-img/Main-bg.png");
 	background-position: top center;
 	background-repeat: repeat-x;
 	background-size: 100%;
@@ -365,7 +365,7 @@ img {
 
 .club-cards {
 	padding: 37px 0 67px;
-	background-image: url("../img/Clouds-v6.png");
+	background-image: url("../img/mobile-img/Clouds-v6.png");
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-size: 100%;
@@ -461,6 +461,9 @@ img {
 	.container,
 	.container-big {
 		max-width: 720px;
+	}
+	body {
+		background-image: url("../img/Main-bg-v4.png");
 	}
 	/* Навигация */
 	.main-nav {
@@ -563,6 +566,9 @@ img {
 		margin: 60px 212px 0;
 	}
 	/* Абонементы */
+	.club-cards {
+		background-image: url("../img/Clouds-v6.png");
+	}
 	.club-cards__card-list {
 		flex-direction: row;
 		justify-content: center;
