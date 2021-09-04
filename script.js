@@ -46,20 +46,3 @@ oneYear.onclick = function () {
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 }
 
-const time = 1000;
-const step = 10;
-
-function outNum(num) {
-  let element = prices;
-  n = prices[i].textContent;
-  let t = Math.round(time / (num / step));
-  let interval = setInterval(() => {
-    n = n + step;
-    if (n == num) {
-      clearInterval(interval);
-    }
-    element.innerHTML = n;
-  }, t);
-}
-
-outNum(1000);
