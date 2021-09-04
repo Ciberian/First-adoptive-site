@@ -45,3 +45,32 @@ oneYear.onclick = function () {
 		prices[i].textContent = prices[i].dataset.price * 12 - prices[i].dataset.price * 12 * 0.15 + " Р"
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 }
+
+//--------------------------Галерея для блока team---------------------------------
+var slideIndex = 1
+showSlides(slideIndex)
+
+// Вперед/назад элементы управления
+function plusSlides(n) {
+	showSlides((slideIndex += n))
+}
+
+// Элементы управления миниатюрами изображений
+function currentSlide(n) {
+	showSlides((slideIndex = n))
+}
+
+function showSlides(n) {
+	var i
+	var slides = document.getElementsByClassName("slider")
+	if (n > slides.length) {
+		slideIndex = 1
+	}
+	if (n < 1) {
+		slideIndex = slides.length
+	}
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none"
+	}
+	slides[slideIndex - 1].style.display = "block"
+}
