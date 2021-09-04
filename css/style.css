@@ -427,6 +427,7 @@ img {
 	font-style: normal;
 	font-weight: bold;
 	font-size: 30px;
+	transition: all 10s ease-in-out;
 }
 
 .club-cards__order-link {
