@@ -45,4 +45,3 @@ oneYear.onclick = function () {
 		prices[i].textContent = prices[i].dataset.price * 12 - prices[i].dataset.price * 12 * 0.15 + " Р"
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 }
-

@@ -82,6 +82,10 @@ img {
 	height: 35px;
 }
 
+.logo:focus {
+	outline-color: rgba(255, 255, 255, 0.7)
+}
+
 .nav-list {
 	display: none;
 	margin: 0;
@@ -244,6 +248,10 @@ img {
 	text-decoration: underline #e0385d;
 }
 
+.promo__link:focus {
+	outline-color: #e0385d;
+}
+
 .promo__link::before {
 	content: "";
 	width: 36px;
@@ -387,6 +395,10 @@ img {
 .club-cards__period-link .active,
 .club-cards__period-link:hover {
 	text-decoration: underline;
+}
+
+.club-cards__period-link:focus {
+	outline-color: #ff5b53;
 }
 
 .club-cards__card-list {
