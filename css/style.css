@@ -47,6 +47,13 @@ img {
 	background-size: 63%;
 }
 
+.common-background-two {
+	background-image: url("../img/Tracery.svg");
+	background-position: 0% 0%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
 .container,
 .container-big {
 	min-width: 280px;
@@ -63,6 +70,32 @@ img {
 	border: 0;
 	clip: rect(0, 0, 0, 0);
 	clip-path: inset(100%);
+}
+
+/* Исчезающая анимация */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 /*
@@ -180,7 +213,6 @@ img {
 .burger-menu:hover {
 	transform: scale(1.1);
 }
-
 
 /*
   ========================================
@@ -469,14 +501,14 @@ img {
 }
 
 /* Контейнер слайд-шоу */
-.slideshow-container {
+.team__container {
 	width: 250px;
 	position: relative;
 	margin: 60px auto;
 }
 
 /* Скрыть изображения по умолчанию */
-.slider {
+.team__slider {
 	display: none;
 }
 
@@ -508,40 +540,15 @@ img {
 }
 
 /* Номер текста (1/3 и т.д.) */
-.numbertext {
+.team__number {
 	padding: 8px 12px;
 	position: absolute;
 	top: 0;
 }
 
-/* Исчезающая анимация */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 1.5s;
-	animation-name: fade;
-	animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-	from {
-		opacity: 0.4;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-@keyframes fade {
-	from {
-		opacity: 0.4;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
 /* Содержимое слайдов и прочее */
 .team__trainer {
+	background-color: #fff;
 	box-shadow: 0px 0px 25px rgba(142, 128, 169, 0.5);
 }
 
@@ -551,6 +558,7 @@ img {
 }
 
 .team__trainer-experience {
+	margin: 0;
 	color: #e65c7b;
 	font-size: 14px;
 }
@@ -565,6 +573,18 @@ img {
 
 .team__preview-list {
 	display: none;
+}
+.team__trainer-info {
+	margin-bottom: 0;
+}
+
+/*
+  ========================================
+  Галерея
+  ========================================
+*/
+.gallery {
+	min-height: 500px;
 }
 
 /*
@@ -629,7 +649,27 @@ img {
 		width: 56px;
 		height: 48px;
 	}
+	/* Наша команда */
+	.team__container {
+		width: 100%;
+	}
+	.team__trainer {
+		display: flex;
+	}
+	.team__trainer-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+	.team__trainer-name {
+		margin: 0.5em 0;
+	}
+	.team__img {
+		width: 270px;
+		height: 270px;
+	}
 }
+
 /*
   =============================================================
   Устройства Large (настольные компьютеры, 992 пикселей и выше) 

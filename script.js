@@ -46,7 +46,7 @@ oneYear.onclick = function () {
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 }
 
-//--------------------------Галерея для блока team---------------------------------
+//--------------------------Галерея для блока Наша команда---------------------------------
 var slideIndex = 1
 showSlides(slideIndex)
 
@@ -62,7 +62,7 @@ function currentSlide(n) {
 
 function showSlides(n) {
 	var i
-	var slides = document.getElementsByClassName("slider")
+	var slides = document.getElementsByClassName("team__slider")
 	if (n > slides.length) {
 		slideIndex = 1
 	}
