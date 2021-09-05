@@ -49,9 +49,9 @@ img {
 
 .common-background-two {
 	background-image: url("../img/Tracery.svg");
-	background-position: 0% 0%;
+	background-position: top left;
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 77%;
 }
 
 .container,
@@ -435,7 +435,7 @@ img {
 }
 
 .club-cards__period-link:focus {
-	outline-color: #ff5b53;
+	outline-color: rgba(255, 121, 161, 1);
 }
 
 .club-cards__card-list {
@@ -497,14 +497,18 @@ img {
   ========================================
 */
 .team {
-	padding: 53px 0;
+	padding: 53px 0 67px;
+}
+
+.team__title {
+	margin-bottom: 60px;
 }
 
 /* Контейнер слайд-шоу */
 .team__container {
 	width: 250px;
 	position: relative;
-	margin: 60px auto;
+	margin: 0 auto;
 }
 
 /* Скрыть изображения по умолчанию */
@@ -576,12 +580,85 @@ img {
 	display: none;
 }
 
+.team__preview-item {
+	opacity: 0.7;
+}
+
+.team__preview-item:hover,
+.team__preview-item--active {
+	opacity: 1;
+}
+
 /*
   ========================================
   Галерея
   ========================================
 */
 .gallery {
+	padding: 53px 0;
+}
+
+.gallery__list {
+	margin: 0;
+	margin-top: 30px;
+	padding: 0;
+	list-style: none;
+}
+
+.gallery__item {
+	display: none;
+	margin: 0 auto;
+	width: 250px;
+	overflow: hidden;
+}
+
+.gallery__img {
+	display: block;
+	margin: 0 auto;
+	object-fit: contain;
+}
+
+.gallery__nav {
+	position: relative;
+	bottom: 126px;
+	width: 280px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+.gallery__button-prev,
+.gallery__button-next {
+	display: inline-block;
+	padding: 15px 20px;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 50%;
+	user-select: none;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.gallery__button-next:hover {
+	color: #ffffff;
+	transform: translateX(5px);
+	background: radial-gradient(ellipse at center, rgba(142, 128, 169, 0.99) 0%, rgba(20, 18, 24, 0) 86%, rgba(0, 0, 0, 0) 100%);
+}
+
+.gallery__button-prev:hover {
+	color: #ffffff;
+	transform: translateX(-5px);
+	background: radial-gradient(ellipse at center, rgba(142, 128, 169, 0.99) 0%, rgba(20, 18, 24, 0) 86%, rgba(0, 0, 0, 0) 100%);
+}
+
+/*
+  ========================================
+  Отзывы
+  ========================================
+*/
+
+.reviews {
 	min-height: 500px;
 }
 
@@ -781,6 +858,8 @@ img {
 	}
 	.team__preview-list {
 		display: flex;
+		justify-content: space-between;
+		width: 435px;
 		margin: 0 auto;
 		padding: 0;
 		list-style: none;
@@ -856,8 +935,21 @@ img {
 	}
 
 	/* Наша команда */
+	.team__trainer {
+		box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.2);
+	}
 	.team__img {
 		width: 335px;
 		height: 335px;
+	}
+	.team__trainer-skills {
+		padding: 30px;
+		padding-bottom: 20px;
+	}
+	.team__trainer-name {
+		margin: 0;
+	}
+	.team__trainer-wrapper {
+		margin-bottom: 25px;
 	}
 }

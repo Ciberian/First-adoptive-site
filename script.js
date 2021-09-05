@@ -14,7 +14,7 @@ function myFunction() {
 //----Добавление активного класса выбранному элементу навигации----
 var navElement = navigation.querySelectorAll(".nav-list__link");
 
-for (var i = 0; i < navElement.length; i++) {
+for (let i = 0; i < navElement.length; i++) {
 	navElement[i].addEventListener("click", function () {
 		var current = document.getElementsByClassName("nav-list__link--active");
 		if (current.length > 0) {
@@ -27,7 +27,7 @@ for (var i = 0; i < navElement.length; i++) {
 //----Добавление активного класса выбранному периоду для абонемента----
 var clubCardsPeriod = document.querySelectorAll(".club-cards__period-link");
 
-for (var i = 0; i < clubCardsPeriod.length; i++) {
+for (let i = 0; i < clubCardsPeriod.length; i++) {
 	clubCardsPeriod[i].addEventListener("click", function () {
 		var current = document.getElementsByClassName("club-cards__period-link--active");
 		if (current.length > 0) {
@@ -60,7 +60,7 @@ oneYear.onclick = function () {
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 };
 
-//--------------------------Галерея для блока Наша команда---------------------------------
+//--------------------------Слайдер для блока Наша команда---------------------------------
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -75,16 +75,52 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-	var i;
 	var slides = document.querySelectorAll(".team__slide");
+	var previews = document.querySelectorAll(".team__preview-item");
+
+	// Механизм перелистывания слайдов
 	if (n > slides.length) {
 		slideIndex = 1;
 	}
 	if (n < 1) {
 		slideIndex = slides.length;
 	}
-	for (i = 0; i < slides.length; i++) {
+
+	// Механизм показа слайдов
+	for (let i = 0; i < slides.length; i++) {
 		slides[i].style.display = "none";
 	}
+
+	for (let i = 0; i < previews.length; i++) {
+		previews[i].className = previews[i].className.replace(" team__preview-item--active", "");
+	}
 	slides[slideIndex - 1].style.display = "block";
+	previews[slideIndex - 1].className += " team__preview-item--active";
+}
+
+//--------------------------Слайдер для блока Галерея---------------------------------
+var gallerySlideIndex = 1;
+showGallerySlides(gallerySlideIndex);
+
+// Вперед/назад элементы управления
+function plusGallerySlides(n) {
+	showGallerySlides((gallerySlideIndex += n));
+}
+
+function showGallerySlides(n) {
+	var gallerySlides = document.querySelectorAll(".gallery__item");
+
+	// Механизм перелистывания слайдов
+	if (n > gallerySlides.length) {
+		gallerySlideIndex = 1;
+	}
+	if (n < 1) {
+		gallerySlideIndex = gallerySlides.length;
+	}
+
+	// Механизм показа слайдов
+	for (let i = 0; i < gallerySlides.length; i++) {
+		gallerySlides[i].style.display = "none";
+	}
+	gallerySlides[gallerySlideIndex - 1].style.display = "block";
 }

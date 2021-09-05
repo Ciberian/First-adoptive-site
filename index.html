@@ -201,7 +201,7 @@
 			<div class="common-background-two">
 				<!-- Команда -->
 				<section class="team" id="team">
-					<h2 class="section-title">Наша команда</h2>
+					<h2 class="team__title section-title">Наша команда</h2>
 					<div class="container">
 						<div class="team__container">
 							<!-- Контейнер слайд-шоу -->
@@ -278,21 +278,67 @@
 						</div>
 
 						<ul class="team__preview-list">
-							<li class="team__preview-item">
+							<li class="team__preview-item team__preview-item--active" onclick="currentSlide(1)">
 								<img src="img/trainer1.jpg" width="125" height="125" alt="Серёжа Попов" />
 							</li>
-							<li class="preview-item">
-								<img src="img/trainer2.jpg" width="125" height="125" alt="Анастасия Понкратова" />
+							<li class="team__preview-item">
+								<img src="img/trainer2.jpg" width="125" height="125" alt="Анастасия Понкратова" onclick="currentSlide(2)" />
 							</li>
-							<li class="preview-item">
-								<img src="img/trainer3.jpg" width="125" height="125" alt="Полина Емельянова" />
+							<li class="team__preview-item">
+								<img src="img/trainer3.jpg" width="125" height="125" alt="Полина Емельянова" onclick="currentSlide(3)" />
 							</li>
 						</ul>
 					</div>
 				</section>
 
 				<!-- Галерея -->
-				<section class="gallery" id="gallery"></section>
+				<section class="gallery" id="gallery">
+					<div class="container-big">
+						<h2 class="section-title">Галерея</h2>
+						<ul class="gallery__list">
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo1.jpg" width="219" height="200" alt="Фото 1" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo2.jpg" width="352" height="200" alt="Фото 2" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo3.jpg" width="91" height="200" alt="Фото 3" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo4.jpg" width="317" height="200" alt="Фото 4" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo5.jpg" width="355" height="200" alt="Фото 5" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo6.jpg" width="114" height="200" alt="Фото 6" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo7.jpg" width="290" height="200" alt="Фото 7" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo8.jpg" width="220" height="200" alt="Фото 8" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo9.jpg" width="301" height="200" alt="Фото 9" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo10.jpg" width="230" height="200" alt="Фото 10" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo11.jpg" width="359" height="200" alt="Фото 11" />
+							</li>
+							<li class="gallery__item">
+								<img class="gallery__img" src="img/photo12.jpg" width="91" height="200" alt="Фото 12" />
+							</li>
+						</ul>
+						<div class="gallery__nav">
+							<a class="gallery__button-prev" onclick="plusGallerySlides(-1)" aria-label="Кнопка Назад">&#10094;</a>
+							<a class="gallery__button-next" onclick="plusGallerySlides(1)" aria-label="Кнопка Вперед">&#10095;</a>
+						</div>
+					</div>
+				</section>
 			</div>
 			<!-- Отзывы -->
 			<section class="reviews" id="reviews"></section>
