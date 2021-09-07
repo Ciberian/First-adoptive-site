@@ -100,7 +100,6 @@ function showSlides(n) {
 
 //--------------------------Слайдер для блока Галерея---------------------------------
 var gallerySlideIndex = 1;
-showGallerySlides(gallerySlideIndex);
 
 // Вперед/назад элементы управления
 function plusGallerySlides(n) {
@@ -124,3 +123,25 @@ function showGallerySlides(n) {
 	}
 	gallerySlides[gallerySlideIndex - 1].style.display = "block";
 }
+
+// Медиазапрос для слайдера.
+// При ширине экрана 992px и выше запрос возвращает объект MediaQueryList со свойством matches значение которого true.
+// При меньшей ширине экрана значение matches - false
+const mediaQuery = window.matchMedia("(min-width: 992px)");
+
+function viewportWidth(e) {
+	var gallerySlides = document.querySelectorAll(".gallery__item");
+	if (e.matches) {
+		// Если ширина экрана 992px и больше, то отображаем все элементы галереи
+		for (let i = 0; i < gallerySlides.length; i++) {
+			gallerySlides[i].style.display = "block";
+		}
+	} else {
+		// В ином случае вызываем функцию показа слайдов
+		showGallerySlides(gallerySlideIndex);
+	}
+}
+
+// Отслеживаем изменение ширины экрана
+mediaQuery.addEventListener("change", viewportWidth);
+viewportWidth(mediaQuery);

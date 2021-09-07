@@ -607,8 +607,9 @@ img {
 
 .gallery__item {
 	display: none;
-	margin: 0 auto;
 	width: 250px;
+	margin: 0 auto;
+	background-color: #bbbbbb;
 	overflow: hidden;
 }
 
@@ -864,6 +865,27 @@ img {
 		padding: 0;
 		list-style: none;
 	}
+	/* Галерея */
+	.gallery__list {
+		display: grid;
+		grid-auto-rows: 200px;
+		grid-template-columns: repeat(auto-fit, minmax(93px, 1fr));
+		gap: 10px;
+		grid-auto-flow: dense;
+	}
+	.gallery__item {
+		display: block;
+		width: 100%;
+	}
+	.gallery__nav {
+		display: none;
+	}
+	.wide {
+		grid-column: span 2;
+	}
+	.uwide {
+		grid-column: span 3;
+	}
 }
 
 /*
@@ -951,5 +973,19 @@ img {
 	}
 	.team__trainer-wrapper {
 		margin-bottom: 25px;
+	}
+	/* Галерея */
+	.gallery__list {
+		display: flex;
+		flex-wrap: wrap;
+		width: 1080px;
+		margin: 30px auto;
+		padding: 30px;
+		border: 5px solid #f0ebf9;
+		border-radius: 10px;
+	}
+	.gallery__item {
+		width: auto;
+		margin: 0;
 	}
 }
