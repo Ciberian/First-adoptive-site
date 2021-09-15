@@ -322,9 +322,13 @@ img {
 	list-style: none;
 }
 
+.social__link {
+	text-decoration: none;
+}
+
 .social__link:hover svg {
-	width: 110%;
-	height: 110%;
+	stroke: rgba(123, 121, 161, 0.85);
+	stroke-width: 1px;
 }
 
 .promo-city {
@@ -595,7 +599,7 @@ img {
   ========================================
 */
 .gallery {
-	padding: 53px 0;
+	padding: 53px 0 42px;
 }
 
 .gallery__list {
@@ -611,6 +615,7 @@ img {
 	margin: 0 auto;
 	background-color: #bbbbbb;
 	overflow: hidden;
+	box-shadow: 0px 0px 25px rgba(142, 128, 169, 0.7);
 }
 
 .gallery__img {
@@ -652,6 +657,11 @@ img {
 	transform: translateX(-5px);
 	background: radial-gradient(ellipse at center, rgba(142, 128, 169, 0.99) 0%, rgba(20, 18, 24, 0) 86%, rgba(0, 0, 0, 0) 100%);
 }
+.notation {
+	width: 250px;
+	margin: 0 auto;
+	opacity: 0.8;
+}
 
 /*
   ========================================
@@ -660,7 +670,112 @@ img {
 */
 
 .reviews {
-	min-height: 500px;
+	padding: 48px 0;
+}
+
+.reviews__slider {
+	border: 1px solid #000;
+	width: 250px;
+	margin: 62px auto 26px;
+	overflow: hidden;
+}
+
+.reviews__list {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	transition: all ease 0.5s;
+}
+
+.reviews__item {
+	flex-shrink: 0;
+	width: 200px;
+	margin: 25px;
+	padding: 30px 10px;
+	background: #ffffff;
+	box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.65);
+}
+
+.reviews__text::before {
+	content: "“";
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-family: "Francois One", "Arial", sans-serif;
+	font-weight: 400;
+	font-size: 80px;
+	line-height: 15px;
+	color: rgba(142, 128, 169, 0.39);
+}
+
+.reviews__author {
+	display: flex;
+	margin-top: 40px;
+}
+
+.author__about {
+	margin-left: 13px;
+}
+
+.author__name {
+	margin: 0;
+	line-height: 16px;
+	color: rgba(230, 92, 123, 0.7);
+}
+
+.author__date {
+	margin: 0;
+	font-size: 10px;
+}
+
+.author__links {
+	margin: 0;
+	margin-top: auto;
+}
+
+.reviews__nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.reviews__button-next,
+.reviews__button-prev {
+	margin: 0 15px;
+	padding: 4px 16px;
+	color: #8e80a9;
+	font-weight: normal;
+	background-color: #ffffff;
+	border: 1px solid #8e80a9;
+	cursor: pointer;
+}
+
+
+.reviews__button-next:hover,
+.reviews__button-prev:hover {
+	color: #ffffff;
+	background-color: #8e80a9;
+}
+
+.reviews__button-next--disabled,
+.reviews__button-prev--disabled,
+.reviews__button-next--disabled:hover,
+.reviews__button-prev--disabled:hover {
+	color: #dddddd;
+	background-color: #aaaaaa;
+	border: 1px solid #aaaaaa;
+}
+
+
+/*
+  ========================================
+  Футер сайта
+  ========================================
+*/
+.main-footer {
+	min-height: 600px;
+	background-color: #444;
 }
 
 /*
@@ -870,12 +985,16 @@ img {
 		display: grid;
 		grid-auto-rows: 200px;
 		grid-template-columns: repeat(auto-fit, minmax(93px, 1fr));
-		gap: 10px;
 		grid-auto-flow: dense;
+		gap: 10px; /* Работает и для флексов на следующей контрольной точке*/
+		padding: 15px;
+		border: 5px solid #f0ebf9;
+		border-radius: 10px;
 	}
 	.gallery__item {
 		display: block;
 		width: 100%;
+		box-shadow: none;
 	}
 	.gallery__nav {
 		display: none;
@@ -885,6 +1004,9 @@ img {
 	}
 	.uwide {
 		grid-column: span 3;
+	}
+	.notation {
+		display: none;
 	}
 }
 
@@ -978,9 +1100,9 @@ img {
 	.gallery__list {
 		display: flex;
 		flex-wrap: wrap;
-		width: 1080px;
-		margin: 30px auto;
-		padding: 30px;
+		width: 1070px;
+		margin: 30px auto 0;
+		padding: 25px;
 		border: 5px solid #f0ebf9;
 		border-radius: 10px;
 	}

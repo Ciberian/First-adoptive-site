@@ -116,7 +116,6 @@ function showGallerySlides(n) {
 	if (n < 1) {
 		gallerySlideIndex = gallerySlides.length;
 	}
-
 	// Механизм показа слайдов
 	for (let i = 0; i < gallerySlides.length; i++) {
 		gallerySlides[i].style.display = "none";
@@ -145,3 +144,49 @@ function viewportWidth(e) {
 // Отслеживаем изменение ширины экрана
 mediaQuery.addEventListener("change", viewportWidth);
 viewportWidth(mediaQuery);
+
+//--------------------------Слайдер для блока Отзывы-------------------------------
+const sliderLine = document.querySelector(".reviews__list");
+const reviews = document.querySelectorAll(".reviews__item");
+const btnNext = document.querySelector(".reviews__button-next");
+const btnPrev = document.querySelector(".reviews__button-prev");
+
+// Счетчик слайдов
+let count = 0;
+
+// Ширина слайда с отзывом
+let slideWidth = reviews[0].offsetWidth + 50;
+console.log(slideWidth);
+
+//Ширина ряда слайдов = ширина отдельного слайда умноженная на их количество
+function init() {
+	sliderLine.style.width = slideWidth * reviews.length + "px";
+}
+//При увеличении размеров слайда для десктопной версии, произойдет перерасчет ширины ряда слайдов
+reviews[0].addEventListener("resize", init);
+init();
+
+btnNext.onclick = function () {
+	count++;
+	btnPrev.classList.remove("reviews__button-prev--disabled");
+	if (count >= reviews.length - 1) {
+		count = reviews.length - 1;
+		btnNext.classList.add("reviews__button-next--disabled");
+	}
+	rollSlider();
+};
+
+btnPrev.onclick = function () {
+	count--;
+	btnNext.classList.remove("reviews__button-next--disabled");
+	if (count <= 0) {
+		count = 0;
+		btnPrev.classList.add("reviews__button-prev--disabled");
+	}
+	rollSlider();
+};
+
+//Задаем смещение на ширину слайда, через трансформацию, хотя можно и через position:relative
+function rollSlider() {
+	sliderLine.style.transform = "translate(-" + count * slideWidth + "px)";
+}
