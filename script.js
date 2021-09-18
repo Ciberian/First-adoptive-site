@@ -1,4 +1,6 @@
-//-------------------Работа бургер меню------------------------
+//---------------------------------------------------------------------------------
+//------------------------------Работа бургер меню---------------------------------
+//---------------------------------------------------------------------------------
 var navigation = document.querySelector(".nav-list");
 var burgerMenu = document.querySelector(".burger-menu");
 
@@ -11,7 +13,9 @@ function myFunction() {
 	burgerMenu.classList.toggle("burger-menu--open");
 }
 
-//----Добавление активного класса выбранному элементу навигации----
+//---------------------------------------------------------------------------------
+//------------Добавление активного класса выбранному элементу навигации------------
+//---------------------------------------------------------------------------------
 var navElement = navigation.querySelectorAll(".nav-list__link");
 
 for (let i = 0; i < navElement.length; i++) {
@@ -24,7 +28,9 @@ for (let i = 0; i < navElement.length; i++) {
 	});
 }
 
-//----Добавление активного класса выбранному периоду для абонемента----
+//---------------------------------------------------------------------------------
+//---------Добавление активного класса выбранному периоду для абонемента-----------
+//---------------------------------------------------------------------------------
 var clubCardsPeriod = document.querySelectorAll(".club-cards__period-link");
 
 for (let i = 0; i < clubCardsPeriod.length; i++) {
@@ -37,7 +43,9 @@ for (let i = 0; i < clubCardsPeriod.length; i++) {
 	});
 }
 
-//-----------Пересчет стоимости абонементов в зависимости от выбранного периода-------
+//---------------------------------------------------------------------------------
+//-------Пересчет стоимости абонементов в зависимости от выбранного периода--------
+//---------------------------------------------------------------------------------
 var oneMonth = document.querySelector(".one-month");
 var halfYear = document.querySelector(".half-year");
 var oneYear = document.querySelector(".one-year");
@@ -60,8 +68,9 @@ oneYear.onclick = function () {
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 };
 
-//-----------------------------------------------------------------------------------------
-//--------------------------Слайдер для блока Наша команда---------------------------------
+//---------------------------------------------------------------------------------
+//--------------------------Слайдер для блока Наша команда-------------------------
+//---------------------------------------------------------------------------------
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -99,8 +108,9 @@ function showSlides(n) {
 	previews[slideIndex - 1].className += " team__preview-item--active";
 }
 
-//------------------------------------------------------------------------------------
-//--------------------------Слайдер для блока Галерея---------------------------------
+//---------------------------------------------------------------------------------
+//--------------------------Слайдер для блока Галерея------------------------------
+//---------------------------------------------------------------------------------
 var gallerySlideIndex = 1;
 
 // Вперед/назад элементы управления
@@ -130,14 +140,13 @@ function showGallerySlides(n) {
 // При меньшей ширине экрана значение matches - false
 const mediaQuery = window.matchMedia("(min-width: 992px)");
 
-function viewportWidth(e) {
+function viewportWidthGal(e) {
 	var gallerySlides = document.querySelectorAll(".gallery__item");
 	if (e.matches) {
 		// Если ширина экрана 992px и больше, то отображаем все элементы галереи
 		for (let i = 0; i < gallerySlides.length; i++) {
 			gallerySlides[i].style.display = "block";
 		}
-		slideWidth = 472;
 	} else {
 		// В ином случае вызываем функцию показа слайдов
 		showGallerySlides(gallerySlideIndex);
@@ -145,11 +154,13 @@ function viewportWidth(e) {
 }
 
 // Отслеживаем изменение ширины экрана
-mediaQuery.addEventListener("change", viewportWidth);
-viewportWidth(mediaQuery);
+mediaQuery.addEventListener("change", viewportWidthGal);
+viewportWidthGal(mediaQuery);
+
 
 //---------------------------------------------------------------------------------
 //--------------------------Слайдер для блока Отзывы-------------------------------
+//---------------------------------------------------------------------------------
 const sliderLine = document.querySelector(".reviews__list");
 const reviews = document.querySelectorAll(".reviews__item");
 const btnNext = document.querySelector(".reviews__button-next");
@@ -163,7 +174,7 @@ var slideWidth;
 // При меньшей ширине экрана значение matches - false
 const mediaQuery2 = window.matchMedia("(min-width: 992px)");
 
-function viewportWidth(e) {
+function viewportWidthRev(e) {
 	if (e.matches) {
 		// Если ширина экрана 992px и больше, то ширина отдельного слайда 472px
 		slideWidth = 472;
@@ -171,11 +182,11 @@ function viewportWidth(e) {
 		// В ином случае ширина слайда 250px
 		slideWidth = 250;
 	}
-	console.log(slideWidth);
+	rollSlider(); // При ресайзе вьюпорта сбрасываем смещение слайда от предыдущего вьюпорта, вызывая функцию пропрутки. Т.к. при разных вьюпортах разные размер слайда и разный шаг смещения.
 }
-// Отслеживаем изменение ширины экрана
-mediaQuery2.addEventListener("change", viewportWidth);
-viewportWidth(mediaQuery2);
+// Отслеживаем изменение ширины экрана и при изменении вызываем функцию viewportWidth
+mediaQuery2.addEventListener("change", viewportWidthRev);
+viewportWidthRev(mediaQuery2);
 
 //Ширина ряда слайдов = ширина отдельного слайда умноженная на их количество
 function init() {
@@ -205,7 +216,7 @@ btnPrev.onclick = function () {
 };
 
 //Задаем смещение на ширину слайда, через трансформацию, хотя можно и через position:relative
-//Ширину слайда отслеживает через функцию viewportWidth выше, т.к. ширина слайда меняется.
+//Ширину слайда задаем через функцию viewportWidth выше, т.к. ширина слайда меняется, в зависимости от ширины вьюпорта
 function rollSlider() {
 	sliderLine.style.transform = "translate(-" + count * slideWidth + "px)";
 }

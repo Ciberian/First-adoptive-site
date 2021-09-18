@@ -670,12 +670,12 @@ img {
 */
 
 .reviews {
-	padding: 48px 0;
+	padding: 48px 0 65px;
 }
 
 .reviews__slider {
 	width: 250px;
-	margin: 62px auto 26px;
+	margin: 47px auto 11px;
 	overflow: hidden;
 }
 
@@ -688,6 +688,9 @@ img {
 }
 
 .reviews__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	flex-shrink: 0;
 	width: 200px;
 	margin: 25px;
@@ -710,7 +713,7 @@ img {
 
 .reviews__author {
 	display: flex;
-	margin-top: 40px;
+	margin-top: 12px;
 }
 
 .author__about {
@@ -1015,7 +1018,7 @@ img {
 		flex-shrink: 0;
 		width: 442px;
 		margin: 15px;
-		padding: 30px 10px;
+		padding: 43px 43px 25px 87px;
 		background: #ffffff;
 		box-shadow: 0px 4px 25px rgba(142, 128, 169, 0.2);
 	}
