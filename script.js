@@ -60,6 +60,7 @@ oneYear.onclick = function () {
 	} // Считаем стоимость за 12 месяцев и вычитаем скидку 15%
 };
 
+//-----------------------------------------------------------------------------------------
 //--------------------------Слайдер для блока Наша команда---------------------------------
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -98,6 +99,7 @@ function showSlides(n) {
 	previews[slideIndex - 1].className += " team__preview-item--active";
 }
 
+//------------------------------------------------------------------------------------
 //--------------------------Слайдер для блока Галерея---------------------------------
 var gallerySlideIndex = 1;
 
@@ -135,6 +137,7 @@ function viewportWidth(e) {
 		for (let i = 0; i < gallerySlides.length; i++) {
 			gallerySlides[i].style.display = "block";
 		}
+		slideWidth = 472;
 	} else {
 		// В ином случае вызываем функцию показа слайдов
 		showGallerySlides(gallerySlideIndex);
@@ -145,6 +148,7 @@ function viewportWidth(e) {
 mediaQuery.addEventListener("change", viewportWidth);
 viewportWidth(mediaQuery);
 
+//---------------------------------------------------------------------------------
 //--------------------------Слайдер для блока Отзывы-------------------------------
 const sliderLine = document.querySelector(".reviews__list");
 const reviews = document.querySelectorAll(".reviews__item");
@@ -152,20 +156,34 @@ const btnNext = document.querySelector(".reviews__button-next");
 const btnPrev = document.querySelector(".reviews__button-prev");
 
 // Счетчик слайдов
-let count = 0;
+var count = 0;
+var slideWidth;
 
-// Ширина слайда с отзывом
-let slideWidth = reviews[0].offsetWidth + 50;
-console.log(slideWidth);
+// При ширине экрана 992px и выше запрос возвращает объект MediaQueryList со свойством matches значение которого true.
+// При меньшей ширине экрана значение matches - false
+const mediaQuery2 = window.matchMedia("(min-width: 992px)");
+
+function viewportWidth(e) {
+	if (e.matches) {
+		// Если ширина экрана 992px и больше, то ширина отдельного слайда 472px
+		slideWidth = 472;
+	} else {
+		// В ином случае ширина слайда 250px
+		slideWidth = 250;
+	}
+	console.log(slideWidth);
+}
+// Отслеживаем изменение ширины экрана
+mediaQuery2.addEventListener("change", viewportWidth);
+viewportWidth(mediaQuery2);
 
 //Ширина ряда слайдов = ширина отдельного слайда умноженная на их количество
 function init() {
 	sliderLine.style.width = slideWidth * reviews.length + "px";
 }
-//При увеличении размеров слайда для десктопной версии, произойдет перерасчет ширины ряда слайдов
-reviews[0].addEventListener("resize", init);
 init();
 
+//Кнопки перелистывания слайдов
 btnNext.onclick = function () {
 	count++;
 	btnPrev.classList.remove("reviews__button-prev--disabled");
@@ -187,6 +205,7 @@ btnPrev.onclick = function () {
 };
 
 //Задаем смещение на ширину слайда, через трансформацию, хотя можно и через position:relative
+//Ширину слайда отслеживает через функцию viewportWidth выше, т.к. ширина слайда меняется.
 function rollSlider() {
 	sliderLine.style.transform = "translate(-" + count * slideWidth + "px)";
 }
