@@ -32,6 +32,10 @@ img {
 	vertical-align: top; /* Чтобы избавиться от отступа у картинок, также допустимо в качестве значения - botton. По умолчанию baseline из-за этого и появляется отступ*/
 }
 
+dd {
+	margin: 0;
+}
+
 .section-title {
 	margin: 0;
 	font-family: "Abhaya Libre", "Arial", sans-serif;
@@ -753,7 +757,6 @@ img {
 	cursor: pointer;
 }
 
-
 .reviews__button-next:hover,
 .reviews__button-prev:hover {
 	color: #ffffff;
@@ -769,15 +772,114 @@ img {
 	border: 1px solid #aaaaaa;
 }
 
-
 /*
   ========================================
   Футер сайта
   ========================================
 */
 .main-footer {
-	min-height: 600px;
-	background-color: #444;
+	padding: 40px 0 0; /*70*/
+	background-color: rgb(242, 237, 255);
+	background-image: url(../img/mobile-img/Footer-bg.png);
+	background-position: center top;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.main-footer__wrapper {
+	width: 280px;
+	margin: 0 auto;
+	padding: 20px 10px;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.main-footer__title {
+	margin: 0 0 40px;
+	text-align: center;
+	font-family: "Abhaya Libre", "Arial", sans-serif;
+}
+
+.order-form__user-name,
+.order-form__user-phone {
+	width: 260px; /*408*/
+	height: 32px;
+	margin-bottom: 40px; /*40*/
+	color: #8e80a9;
+	border: none;
+	border-bottom: 1px solid #8e80a9;
+	background-color: transparent;
+}
+
+.order-form__submit-button {
+	width: 260px;
+	height: 32px; /*56*/
+	margin-bottom: 40px;
+	padding: 0;
+	color: #ffffff;
+	font-size: 14px;
+	background-color: #e65c7b;
+	border: none;
+}
+
+.order-form__submit-button:hover {
+	background-color: #e0385d;
+}
+
+/*Стилизация placeholder-а делается отдельно, а не через запятую, иначе правила не будут работать*/
+::-webkit-input-placeholder {
+	color: rgb(142, 128, 169);
+	font-size: 14px;
+}
+::-moz-placeholder {
+	color: rgb(142, 128, 169);
+	font-size: 14px;
+} /* Firefox 19+ */
+:-moz-placeholder {
+	color: rgb(142, 128, 169);
+	font-size: 14px;
+} /* Firefox 18- */
+:-ms-input-placeholder {
+	color: rgb(142, 128, 169);
+	font-size: 14px;
+}
+
+.contacts__list {
+	display: grid;
+	margin: 0;
+}
+
+.contacts__wrapper {
+	margin: 10px 0;
+}
+
+.contacts__phone-link,
+.contacts__mail-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.main-footer__bottom {
+	padding: 30px 10px 20px;
+	background-color: #8373a1;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.bottom__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.main-footer__link {
+	margin-right: 30px;
+	margin-bottom: 10px;
+	color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+}
+
+.main-footer__copyright {
+	margin: 0;
 }
 
 /*
